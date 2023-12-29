@@ -23,9 +23,8 @@ jobs:
         id: output
 
   after-build:
-    needs: lint
     runs-on: ubuntu-latest
     steps:
     - name: Show output in case of failure
       if: failure()
-      run: echo "${{ needs.lint.outputs.output }}"    
+      run: echo "::error::${{ needs.lint.outputs.output }}"    
