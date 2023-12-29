@@ -4,7 +4,7 @@ on:
       - main
 
 jobs:
-  install:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,10 +18,5 @@ jobs:
       - name: Install dependencies
         run: pnpm install -D --no-frozen-lockfile
 
-  lint:
-    needs: install
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Run Svelte Check
         run: pnpm run lint
