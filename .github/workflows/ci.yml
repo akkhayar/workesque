@@ -1,3 +1,4 @@
+name: CI / lint 
 on:
   pull_request:
     branches:
