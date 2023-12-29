@@ -21,7 +21,6 @@ jobs:
       - name: Run Next Lint
         run: pnpm run lint
         id: output
-        continue-on-error: true
 
   after-build:
     needs: lint
