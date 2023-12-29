@@ -20,11 +20,3 @@ jobs:
 
       - name: Run Next Lint
         run: pnpm run lint
-        id: output
-
-  after-build:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Show output in case of failure
-      if: failure()
-      run: echo "::error::${{ needs.lint.outputs.output }}"    
