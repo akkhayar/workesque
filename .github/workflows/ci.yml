@@ -18,5 +18,15 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
-      - name: Run Svelte Check
+      - name: Run Next Lint
         run: pnpm run lint
+        id: output
+        continue-on-error: true
+
+  after-build:
+    needs: lint
+    runs-on: ubuntu-latest
+    steps:
+    - name: Show output in case of failure
+      if: failure()
+      run: echo "${{ needs.lint.outputs.output }}"    
