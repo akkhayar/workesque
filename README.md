@@ -1,12 +1,12 @@
-<div style="text-align: center;">
-
-### Workesque
-
-Workesque is a lightweight project management software primed for third party integrations. It is designed to be used by small teams or individuals to manage their tasks and projects.
-
-[**Learn more »**](https://workesque.akkhayar.com)
-
-</div>
+<p align="center">
+  <h3 align="center">Workesque</h3>
+  
+  <p align="center">
+  Workesque is a lightweight project management software primed for third party integrations. It is designed to be used by small teams or individuals to manage their tasks and projects.
+  <br />
+  <a href="https://workesque.akkhayar.com"><strong>Learn more »</strong></a>
+  </p>
+</p>
 
 ## Features
 
@@ -25,6 +25,7 @@ $ pnpm install
 ```
 
 Run the development server:
+
 ```bash
 $ pnpm run dev
 ```
