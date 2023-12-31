@@ -2,7 +2,7 @@
   <h3 align="center">Workesque</h3>
   
   <p align="center">
-  Workesque is a lightweight project management software primed for third party integrations. It is designed to be used by small teams or individuals to manage their tasks and projects.
+  Workesque is a lightweight project management software primed for <br />third party integrations. It is designed to be used by small teams or individuals <br />to manage their tasks and projects.
   <br />
   <a href="https://workesque.akkhayar.com"><strong>Learn more »</strong></a>
   </p>
