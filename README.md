@@ -31,6 +31,7 @@ $ pnpm run dev
 ```
 
 Open the link from your terminal to view the app.
+Read the [roadmap](https://github.com/akkhayar/workesque/discussions/14) to understand and discuss the journey ahead.
 
 ## Contributing
 
