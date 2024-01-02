@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Raleway } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const raleway = Raleway({
+	subsets: ["latin"],
+	weight: ["400"],
+	variable: "--font-raleway",
+});
 
 export const metadata: Metadata = {
 	title: "Workesque | Next-Gen Project Management Freeware",
@@ -17,7 +21,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={inter.className}>{children}</body>
+			<body className={`${raleway.variable}`}>{children}</body>
 		</html>
 	);
 }
