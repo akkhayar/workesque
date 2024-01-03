@@ -2,10 +2,10 @@ import Link from "next/link";
 
 const Header = () => {
 	return (
-		<header className="px-[50px] py-[30px] flex items-center justify-between bg-[#fbfdf1]">
+		<header className="px-[50px] py-[30px] flex items-center justify-between bg-landing-primary">
 			<nav>
-				<ul className="flex gap-y-2 gap-x-10 text-[32px] font-bold">
-					<div className="flex gap-10">
+				<ul className="grid grid-cols-3 gap-y-2 gap-x-10 text-[32px] font-bold">
+					<div>
 						<li>
 							<Link href="/">Product</Link>
 						</li>
@@ -14,7 +14,7 @@ const Header = () => {
 						</li>
 					</div>
 
-					<div className="flex gap-10">
+					<div>
 						<li>
 							<Link href="/">Pricing</Link>
 						</li>
@@ -23,7 +23,7 @@ const Header = () => {
 						</li>
 					</div>
 
-					<div className="flex gap-10">
+					<div>
 						<li>
 							<Link href="/">Contact Us</Link>
 						</li>
