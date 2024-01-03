@@ -16,7 +16,11 @@
 
 - **Intuitive** - Workesque is designed to be intuitive and easy to use.
 
-## Getting Started
+## Contributing
+
+Contributions are welcome! Please read [contribution](https://docs.akkhayar.com/community/contribution) for more information.
+
+### Getting Started
 
 Use pnpm to install dependencies.
 
@@ -31,9 +35,8 @@ $ pnpm run dev
 ```
 
 Open the link from your terminal to view the app.
+
+### Resources
+
 - Read the [roadmap](https://github.com/akkhayar/workesque/discussions/14) to understand and discuss the journey ahead.
 - See the [figma design doc](https://www.figma.com/file/L340GQXXUzHWEoZc347w90/Workesque-App?type=design&node-id=0%3A1&mode=design&t=pYNX5Vocvt37N6Tc-1)
-
-## Contributing
-
-Contributions are welcome! Please read [contribution](https://docs.akkhayar.com/community/contribution) for more information.
