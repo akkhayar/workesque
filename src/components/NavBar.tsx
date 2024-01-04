@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import Metric from "./Metric";
+import GlobalSearch from "./search/GlobalSearch";
 
 const NavBar = () => {
 	return (
@@ -11,6 +13,12 @@ const NavBar = () => {
 					Workesque
 				</p>
 			</Link>
+			<GlobalSearch />
+			<div className=" flex-between flex-wrap gap-3">
+				<Metric imgUrl="/assets/icons/minimize.svg" alt="Minimize" />
+				<Metric imgUrl="/assets/icons/squares.svg" alt="Square" />
+				<Metric imgUrl="/assets/icons/close.svg" alt="Close" />
+			</div>
 		</nav>
 	);
 };
