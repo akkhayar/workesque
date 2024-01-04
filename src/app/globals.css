@@ -3,6 +3,13 @@
 @tailwind utilities;
 
 @import url("../styles/theme.css");
+@import url("../styles/buttons.css");
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+}
 
 body {
 	font-family: "Raleway", sans-serif;
