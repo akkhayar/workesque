@@ -27,8 +27,12 @@ body {
 	.flex-start {
 		@apply flex justify-start items-center;
 	}
-}
 
-.no-focus {
-	@apply focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
+	.no-focus {
+		@apply focus-visible:ring-0 focus-visible:ring-transparent focus-visible:ring-offset-0 !important;
+	}
+
+	.landing-button {
+		@apply rounded-full border-[#3E6E68] bg-[#DDF4F4] border-[4px] px-[30px] py-[17px];
+	}
 }
