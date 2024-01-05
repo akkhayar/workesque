@@ -17,9 +17,15 @@ module.exports = {
 					900: "#FFFFFF",
 				},
 				"decorative-text-green": "#98A24D",
+				"landing-primary": "#FBFDF0",
+				"landing-pink": "#DE96FF",
+			},
+			textColor: {
+				dark: "#343434",
 			},
 			fontFamily: {
 				raleway: ["var(--font-raleway)"],
+				recursive: ["var(--font-recursive)"],
 			},
 		},
 	},
