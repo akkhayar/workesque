@@ -5,7 +5,7 @@ import { Input } from "../ui/input";
 const GlobalSearch = () => {
 	return (
 		<div className="relative w-full max-w-[600px] max-lg:hidden">
-			<div className="relative flex min-h-[36px] grow items-center gap-1 rounded-lg px-4 border">
+			<div className="relative flex min-h-[36px] grow items-center gap-1 rounded-lg px-4 border border-white">
 				<Image
 					src={"/assets/icons/search.svg"}
 					alt="search"

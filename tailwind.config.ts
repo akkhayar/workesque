@@ -22,9 +22,6 @@ module.exports = {
 				raleway: ["var(--font-raleway)"],
 			},
 		},
-		colors: {
-			"landing-primary": "#FBFDF0",
-		},
 	},
 	plugins: [],
 };
