@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
@@ -24,5 +25,9 @@
 
 	.background-primary {
 		@apply bg-primary-100;
+	}
+
+	.placeholder {
+		@apply placeholder:text-light-900;
 	}
 }
