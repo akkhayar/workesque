@@ -5,6 +5,9 @@ settings:
  excludeLinksFromLockfile: false
 
 dependencies:
+ "@gsap/react":
+  specifier: ^2.0.2
+  version: 2.0.2(react@18.2.0)
  "@radix-ui/react-slot":
   specifier: ^1.0.2
   version: 1.0.2(@types/react@18.2.46)(react@18.2.0)
@@ -14,15 +17,18 @@ dependencies:
  clsx:
   specifier: ^2.1.0
   version: 2.1.0
- "@gsap/react":
-  specifier: ^2.0.2
-  version: 2.0.2(react@18.2.0)
  google-auth-library:
   specifier: ^9.4.1
   version: 9.4.1
  googleapis:
   specifier: ^128.0.0
   version: 128.0.0
+ gsap:
+  specifier: ^3.12.4
+  version: 3.12.4
+ lucide-react:
+  specifier: ^0.303.0
+  version: 0.303.0(react@18.2.0)
  next:
   specifier: 14.0.2
   version: 14.0.2(react-dom@18.2.0)(react@18.2.0)
