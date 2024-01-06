@@ -17,10 +17,10 @@ const ParallaxSection = () => {
 			scrollTrigger: {
 				trigger: section.current,
 				start: "top top",
-				end: `+=300%`, // Adjust the end to match the section's height
+				end: `+=300%`,
 				pin: true,
 				scrub: true,
-				markers: true,
+				// markers: true,
 			},
 		});
 

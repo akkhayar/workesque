@@ -33,6 +33,10 @@ body {
 	}
 
 	.landing-button {
-		@apply rounded-full border-[#3E6E68] bg-[#DDF4F4] border-[4px] px-[30px] py-[17px];
+		@apply rounded-full border-[#06352F]  border-[4px] p-[10px];
+	}
+
+	.glass-morph {
+		@apply backdrop-filter backdrop-blur-sm bg-opacity-50 bg-[#DDE7E6] rounded-[25px] border border-[#B6D2CF] p-[20px];
 	}
 }
