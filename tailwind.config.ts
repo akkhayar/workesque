@@ -16,8 +16,11 @@ const config: Config = {
 					900: "#FFFFFF",
 				},
 				"decorative-text-green": "#98A24D",
-				"landing-primary": "#FBFDF0",
+				"landing-primary": "#F7F7F7",
 				"landing-pink": "#DE96FF",
+			},
+			boxShadow: {
+				button: "0px 0px 20px 0px #00000040",
 			},
 			textColor: {
 				dark: "#343434",
@@ -25,6 +28,7 @@ const config: Config = {
 			fontFamily: {
 				raleway: ["var(--font-raleway)"],
 				recursive: ["var(--font-recursive)"],
+				staatliches: ["var(--font-staatliches)"],
 			},
 		},
 	},
