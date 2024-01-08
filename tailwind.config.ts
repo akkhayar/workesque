@@ -1,7 +1,6 @@
 import type { Config } from "tailwindcss";
-/** @type {import('tailwindcss').Config} */
 
-module.exports = {
+const config: Config = {
 	content: [
 		"./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
 		"./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -31,7 +30,13 @@ module.exports = {
 				recursive: ["var(--font-recursive)"],
 				staatliches: ["var(--font-staatliches)"],
 			},
+			zIndex: {
+				1: "1",
+				2: "2",
+			},
 		},
 	},
 	plugins: [],
 };
+
+export default config;

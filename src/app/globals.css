@@ -13,6 +13,7 @@ body {
 
 body {
 	font-family: "Raleway", sans-serif;
+	z-index: -1;
 }
 
 @layer utilities {
