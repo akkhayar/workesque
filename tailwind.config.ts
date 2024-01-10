@@ -64,6 +64,7 @@ const config = {
 
 			boxShadow: {
 				button: "0px 0px 20px 0px #00000040",
+				bento: " 0px 3px 15px 1px #5A5A5A1F",
 			},
 			textColor: {
 				dark: "#343434",
