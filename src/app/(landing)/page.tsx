@@ -2,6 +2,7 @@ import Image from "next/image";
 import TextReveal from "./components/TextReveal";
 
 import ParallaxSection from "./components/ParallaxSection";
+import CursorHoverSection from "./components/CursorHoverSection";
 
 const LandingPage = () => {
 	return (
@@ -172,6 +173,18 @@ const LandingPage = () => {
 					</div>
 				</div>
 			</section>
+
+			{/* Section 5 */}
+			<section className="px-[50px] py-[300px]">
+				<div className="max-w-[1272px] grid grid-cols-3 mx-auto gap-y-[40px] gap-x-[25px]">
+					<div className="col-span-3 h-[440px] bg-gray-300 rounded-[20px]"></div>
+					<div className="col-span-2 h-[440px] bg-gray-300 rounded-[20px]"></div>
+					<div className="col-span-1 h-[440px] bg-gray-300 rounded-[20px]"></div>
+				</div>
+			</section>
+
+			{/* Section 6 */}
+			<CursorHoverSection />
 		</>
 	);
 };
