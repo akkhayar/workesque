@@ -12,9 +12,11 @@ module.exports = {
 			colors: {
 				primary: {
 					100: "#0B6A5E",
+					900: "#d1e0dc",
 				},
 				light: {
 					900: "#FFFFFF",
+					100: "#f7f7f7",
 				},
 				"decorative-text-green": "#98A24D",
 				"landing-primary": "#FBFDF0",
