@@ -97,7 +97,7 @@ const ParallaxSection = () => {
 			className="w-full px-[50px] flex-center gap-[80px] pb-[100px] min-h-screen"
 			ref={section}>
 			<div className="max-w-[1400px] w-full">
-				<div className="w-full border-2 border-[#0B6A5E] px-[30px] pl-0! py-[35px] rounded-[40px] flex-between gap-[116px]">
+				<div className="w-full border-2 border-[#0B6A5E] px-[30px] pl-0! py-[35px] rounded-[40px] flex-between gap-[116px] shadow-custom-1">
 					<div className="flex flex-col w-[600px] text-[48px] text-[#142623] font-medium">
 						<p className="self-start">Say goodbye to these</p>
 						<p className="self-end"> workflow interruptions</p>
@@ -114,7 +114,7 @@ const ParallaxSection = () => {
 						typically encountered elsewhere.
 					</p>
 				</div>
-				<div className="w-full border-2 border-[#0B6A5E] px-[90px] pb-[90px] pt-[60px] rounded-[40px] h-full relative">
+				<div className="w-full border-2 border-[#0B6A5E] px-[90px] pb-[90px] pt-[60px] rounded-[40px] h-full relative shadow-custom-1">
 					<div className="flex h-[390px] gap-[12px] justify-end overflow-x-hidden w-[1200px]">
 						<Card title="INFORMATION SILOS" number={1} />
 						<Card title="TASK DUPLICATIONS" number={2} />
