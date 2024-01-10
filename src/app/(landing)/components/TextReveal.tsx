@@ -14,16 +14,17 @@ const TextReveal = () => {
 			text.current,
 
 			{
-				y: 200,
+				y: 400,
 			},
 			{
 				y: 0,
-				duration: 1.3,
+				duration: 1,
 				ease: "circ.inOut",
 				scrollTrigger: {
 					trigger: text.current,
-					start: "-600px top",
-					markers: true,
+					start: "-700px top",
+					end: "-100px",
+					toggleActions: "play none restart none",
 				},
 			}
 		);
