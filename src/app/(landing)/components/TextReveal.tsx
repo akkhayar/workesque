@@ -10,28 +10,27 @@ gsap.registerPlugin(ScrollTrigger);
 const TextReveal = () => {
 	const text = useRef(null);
 	useGSAP(() => {
-		gsap.fromTo(
+		gsap.from(
 			text.current,
 
 			{
-				y: 400,
-			},
-			{
-				y: 0,
+				x: "100%",
 				duration: 1,
 				ease: "circ.inOut",
 				scrollTrigger: {
 					trigger: text.current,
 					start: "-700px top",
 					end: "-100px",
-					toggleActions: "play none restart none",
+					toggleActions: "play none reverse none",
 				},
 			}
 		);
 	});
 	return (
 		<div className="w-full relative z-1 overflow-hidden">
-			<p className="font-semibold text-[96px] text-center z-2" ref={text}>
+			<p
+				className="font-semibold text-[96px] text-center z-2 translate-x-0"
+				ref={text}>
 				FOR UNIFIED OPERATIONS & TEAMS
 			</p>
 		</div>
