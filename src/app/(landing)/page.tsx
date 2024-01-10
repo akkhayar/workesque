@@ -1,6 +1,7 @@
 import Image from "next/image";
 import TextReveal from "./components/TextReveal";
-import Section4 from "./components/Section4";
+
+import ParallaxSection from "./components/ParallaxSection";
 
 const LandingPage = () => {
 	return (
@@ -42,7 +43,7 @@ const LandingPage = () => {
 
 			<TextReveal />
 
-			{/* {Section 3} */}
+			{/* {Section 2} */}
 			<section className="w-full px-[50px] flex-center gap-[80px] pb-[100px]">
 				<div className="flex flex-col text-[#142623]">
 					<p className="text-[40px]">
@@ -81,8 +82,96 @@ const LandingPage = () => {
 				</div>
 			</section>
 
+			{/* Section 3*/}
+			<ParallaxSection />
+
 			{/* Section 4 */}
-			<Section4 />
+
+			<section className="px-[50px] py-[150px]">
+				<p className="font-bold text-[96px] text-center mx-auto mb-[100px]">
+					WHY <br />
+					WORKESQUE?
+				</p>
+				<div className="grid grid-cols-5 gap-[40px] max-w-[1400px] mx-auto">
+					<div className="col-span-3 p-[28px] h-[520px] rounded-[40px] shadow-bento bg-gradient-to-br from-white to-[#EFFFFE] relative overflow-hidden">
+						<div className="h-full flex flex-col justify-between z-[2] text-[#142623]">
+							<p className="w-[440px] text-[40px] font-semibold">
+								ALL YOUR ECOSYSTEM IN <span className="text-gradient-l">ONE PLACE</span>
+							</p>
+							<p className="w-[624px] mt-auto mb-[40px] text-[20px] font-medium">
+								Workesque strives to revolutionize project management by centralizing
+								operations all in one space, in <i>your</i> cloud - fostering
+								collaboration, and enhancing productivity.
+							</p>
+						</div>
+					</div>
+
+					<div className="col-span-2 p-[28px] h-[520px] rounded-[40px] shadow-bento bg-gradient-to-br from-[#EFFFFE] to-white relative overflow-hidden">
+						<div className="z-[2] relative flex flex-col text-[#142623]">
+							<p className="text-center font-semibold text-[40px]">
+								COMPLETE DATA <br />
+								<span className="text-gradient-t">CONTROL</span>
+							</p>
+							<p className="w-[311px] font-medium text-[20px] mt-[37px]">
+								Workesque strives to revolutionize project management by centralizing
+								operations all in one space, in <i>your</i> cloud - fostering
+								collaboration, and enhancing productivity.
+							</p>
+						</div>
+
+						<div className="absolute bottom-0 right-0 w-[300px] h-[300px]">
+							<Image
+								src="/assets/images/bento/bento-1.png"
+								fill
+								alt="Bento"
+								className="object-cover"
+							/>
+						</div>
+					</div>
+
+					<div className="col-span-2 p-[28px] h-[520px] rounded-[40px] shadow-bento bg-gradient-to-bl from-[#EFFFFE] to-white relative overflow-hidden">
+						<div className="z-[2] relative flex-center flex-col w-full h-full gap-[40px]">
+							<p className="text-[54px] text-[#142623] font-extrabold">
+								ARE YOU READY?
+							</p>
+							<button className="text-[32px] flex-center gap-[10px] text-nowrap font-bold text-[#162623] rounded-[40px] border-[3px] border-[#0B6A5E] p-[15px] bg-[#E7FFFC66]">
+								JOIN NOW <span className="w-[30px] h-[30px] bg-gray-300"></span>
+							</button>
+						</div>
+
+						<div className="absolute bottom-0 left-0 w-[445px] h-[280px]">
+							<Image
+								src="/assets/images/bento/bento-2.png"
+								fill
+								alt="Bento"
+								className="object-cover"
+							/>
+						</div>
+					</div>
+
+					<div className="col-span-3 p-[28px] h-[520px] rounded-[40px] shadow-bento bg-gradient-to-tr from-[#EFFFFE] to-white relative overflow-hidden">
+						<div className="z-[2] h-full relative flex justify-end flex-col gap-[30px]">
+							<p className="font-semibold text-[40px]">
+								CUSTOMIZABLE AND <span className="text-gradient-l">HACKABLE</span>
+							</p>
+							<p className="mb-[40px] w-[624px] font-medium text-[20px]">
+								Workesque strives to revolutionize project management by centralizing
+								operations all in one space, in <i>your</i> cloud - fostering
+								collaboration, and enhancing productivity.
+							</p>
+						</div>
+
+						<div className="absolute top-0 left-0 w-[545px] h-[226px]">
+							<Image
+								src="/assets/images/bento/bento-3.png"
+								fill
+								alt="Bento"
+								className="object-cover"
+							/>
+						</div>
+					</div>
+				</div>
+			</section>
 		</>
 	);
 };
