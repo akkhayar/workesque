@@ -22,10 +22,10 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwind-merge": "^2.2.0",
-    "tailwindcss-animate": "^1.0.7"   
-		"@gsap/react": "^2.0.2",
+    "tailwindcss-animate": "^1.0.7",
+    "@gsap/react": "^2.0.2",
 		"@studio-freight/react-lenis": "^0.0.43",
-		"gsap": "^3.12.4",
+		"gsap": "^3.12.4"
   },
   "devDependencies": {
     "@types/node": "^20.10.6",
