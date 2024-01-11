@@ -19,6 +19,10 @@
 		@apply text-[13px] font-normal leading-[15.6px];
 	}
 
+	.base-bold {
+		@apply text-[16px] font-bold leading-[140%];
+	}
+
 	.background-primary {
 		@apply bg-primary-100;
 	}

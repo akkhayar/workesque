@@ -28,6 +28,7 @@ const config = {
 					DEFAULT: "hsl(var(--primary))",
 					foreground: "hsl(var(--primary-foreground))",
 					100: "#0B6A5E",
+					900: "#d1e0dc",
 				},
 				secondary: {
 					DEFAULT: "hsl(var(--secondary))",
@@ -56,6 +57,7 @@ const config = {
 
 				light: {
 					900: "#FFFFFF",
+					100: "#f7f7f7",
 				},
 				"decorative-text-green": "#98A24D",
 				"landing-primary": "#F7F7F7",
