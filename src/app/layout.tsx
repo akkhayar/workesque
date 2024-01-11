@@ -1,17 +1,21 @@
 import type { Metadata } from "next";
-import { Raleway, Recursive } from "next/font/google";
+import { Raleway, Recursive, Staatliches } from "next/font/google";
 import "./globals.css";
 
 const raleway = Raleway({
 	subsets: ["latin"],
-	weight: ["400"],
 	variable: "--font-raleway",
 });
 
 const recursive = Recursive({
 	subsets: ["latin"],
-	weight: ["400", "900", "1000"],
 	variable: "--font-recursive",
+});
+
+const staatliches = Staatliches({
+	subsets: ["latin"],
+	weight: ["400"],
+	variable: "--font-staatliches",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +31,8 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={`${raleway.variable} ${recursive.variable}`}>
+			<body
+				className={`${raleway.variable} ${recursive.variable} ${staatliches.variable}`}>
 				{children}
 			</body>
 		</html>
