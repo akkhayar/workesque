@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-
 @layer utilities {
 	.h1 {
 		@apply text-[28px] leading-[42px] tracking-tighter;
