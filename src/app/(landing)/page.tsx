@@ -3,6 +3,7 @@ import TextReveal from "./components/TextReveal";
 
 import ParallaxSection from "./components/ParallaxSection";
 import CursorHoverSection from "./components/CursorHoverSection";
+import Link from "next/link";
 
 const LandingPage = () => {
 	return (
@@ -34,10 +35,12 @@ const LandingPage = () => {
 					/>
 				</div>
 
-				<button className="landing-button text-[24px] flex-center z-2">
+				<Link
+					href="/new-project"
+					className="landing-button text-[24px] flex-center z-2">
 					GET STARTED FOR FREE
 					<div className="h-[50px] w-[50px] rounded-full overflow-hidden ml-[10px] bg-[#06352F]"></div>
-				</button>
+				</Link>
 
 				{/* Gradients */}
 			</section>
