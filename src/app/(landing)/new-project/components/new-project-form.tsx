@@ -22,12 +22,24 @@ import {
 	SelectTrigger,
 	SelectValue,
 } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import TagsInput from "react-tagsinput";
+import {
+	Tooltip,
+	TooltipContent,
+	TooltipProvider,
+	TooltipTrigger,
+} from "@/components/ui/tooltip";
+
+import "@/styles/tag.css";
+import { Separator } from "@/components/ui/separator";
 
 const formSchema = z.object({
 	projectName: z.string().min(2).max(50),
 	projectType: z.string().min(2).max(50),
 	description: z.string().optional(),
 	tags: z.string().optional().array(),
+	projectLink: z.string().min(2).max(50),
 });
 
 const NewProjectForm = () => {
@@ -37,7 +49,8 @@ const NewProjectForm = () => {
 			projectName: "",
 			projectType: "",
 			description: "",
-			tags: [""],
+			tags: ["Keyword"],
+			projectLink: "",
 		},
 	});
 
@@ -50,13 +63,15 @@ const NewProjectForm = () => {
 
 	return (
 		<Form {...form}>
-			<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+			<form
+				onSubmit={form.handleSubmit(onSubmit)}
+				className="space-y-5 p-[15px] pb-[100px]">
 				<FormField
 					control={form.control}
 					name="projectName"
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel>Username</FormLabel>
+							<FormLabel>Project Name</FormLabel>
 							<FormControl>
 								<Input
 									placeholder="build-the-wall- 👱🧱"
@@ -77,10 +92,10 @@ const NewProjectForm = () => {
 					name="projectType"
 					render={({ field }) => (
 						<FormItem>
-							<FormLabel>Username</FormLabel>
+							<FormLabel>Project Type</FormLabel>
 							<FormControl>
 								<Select onValueChange={field.onChange} defaultValue={field.value}>
-									<SelectTrigger className="w-[180px]">
+									<SelectTrigger className="w-[250px] h-[60px] focus:outline-none focus:ring-0">
 										<SelectValue placeholder="Theme" />
 									</SelectTrigger>
 									<SelectContent>
@@ -90,14 +105,89 @@ const NewProjectForm = () => {
 									</SelectContent>
 								</Select>
 							</FormControl>
+							<FormDescription>Choose your project type.</FormDescription>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+
+				<FormField
+					control={form.control}
+					name="description"
+					render={({ field }) => (
+						<FormItem>
+							<FormLabel>Description</FormLabel>
+							<FormControl>
+								<Textarea
+									placeholder="make American great again 👱🧱"
+									{...field}
+									className="max-w-[520px] focus:outline-none focus:ring-0 focus-within:ring-0"
+								/>
+							</FormControl>
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+
+				<FormField
+					control={form.control}
+					name="tags"
+					render={({ field }) => (
+						<FormItem>
+							<FormLabel>
+								Tags
+								<TooltipProvider delayDuration={0}>
+									<Tooltip>
+										<TooltipTrigger>
+											<p className="ml-2 w-[15px] h-[15px] text-bold border rounded-full text-gray-500 font-bold border-gray-500">
+												!
+											</p>
+										</TooltipTrigger>
+										<TooltipContent>
+											<p>Press Enter key to add tags</p>
+										</TooltipContent>
+									</Tooltip>
+								</TooltipProvider>
+							</FormLabel>
+							<FormControl>
+								<TagsInput value={field.value} onChange={field.onChange} />
+							</FormControl>
 							<FormDescription>
-								This is the name of your project. It can be changed every 30 days.
+								Tags will be use to group projects together.
 							</FormDescription>
 							<FormMessage />
 						</FormItem>
 					)}
 				/>
-				<Button type="submit">Submit</Button>
+
+				<Separator />
+
+				<FormField
+					control={form.control}
+					name="projectLink"
+					render={({ field }) => (
+						<FormItem>
+							<p className="text-[24px] font-bold">Add project drive</p>
+							<p className="text-[20px] py-[26px]">
+								Go to your drive and add this service account to the folder you want to
+								use for your project: <br />
+								<b>main-694@project-management-405211.iam.gserviceaccount.com</b>
+							</p>
+							<FormControl>
+								<Input {...field} className="h-[48px] max-w-[1000px]" />
+							</FormControl>
+
+							<FormMessage />
+						</FormItem>
+					)}
+				/>
+				<div className="pt-10">
+					<Button
+						type="submit"
+						className="rounded-[10px] border-[1.5px] border-[#3E6E68] bg-[#DDF4F4] text-black hover:bg-[#3E6E68] hover:border-[#DDF4F4] hover:text-white px-[32px] py-[14px]">
+						Create Project
+					</Button>
+				</div>
 			</form>
 		</Form>
 	);

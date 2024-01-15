@@ -3,11 +3,6 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
-import {
-	ResizableHandle,
-	ResizablePanel,
-	ResizablePanelGroup,
-} from "@/components/ui/resizable";
 
 const ProjectLayout = ({ children }: { children: React.ReactNode }) => {
 	const [isCollapse, setIsCollapse] = useState(false);

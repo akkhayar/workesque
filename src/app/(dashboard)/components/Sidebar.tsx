@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import Link from "next/link";
 import { Dispatch, SetStateAction } from "react";
+import Directory from "./Directory";
 
 const Sidebar = ({
 	isCollapse,
@@ -55,7 +56,7 @@ const Sidebar = ({
 							className="w-[32px] h-[32px] bg-gray-300"></Link>
 					</div>
 				</div>
-				<div className="w-full h-full bg-[#F7F8F9] border"></div>
+				<Directory />
 			</div>
 		</div>
 	);

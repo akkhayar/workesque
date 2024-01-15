@@ -17,7 +17,7 @@ const Navbar = () => {
 					<button onClick={() => router.back()}>Back</button>
 					<button onClick={() => router.forward()}>Forward</button>
 				</div>
-				<NavInput />
+				<NavInput type="text" />
 			</div>
 			<div className="flex items-center gap-5">
 				<div className="h-[24px] w-[24px] bg-gray-300"></div>
