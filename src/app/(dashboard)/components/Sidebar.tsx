@@ -2,6 +2,7 @@ import clsx from "clsx";
 import Link from "next/link";
 import { Dispatch, SetStateAction } from "react";
 import Directory from "./Directory";
+import { ChevronLeft, ChevronsLeft } from "lucide-react";
 
 const Sidebar = ({
 	isCollapse,
@@ -14,9 +15,9 @@ const Sidebar = ({
 		<div
 			className={clsx(
 				"h-full overflow-hidden transition-all duration-300",
-				isCollapse ? "w-[75px]" : "w-[331px]"
+				isCollapse ? "min-w-[75px] max-w-[75px]" : "min-w-[331px] max-w-[331px]"
 			)}>
-			<div className="flex justify-between items-center border-r border-b border-[#E9E9E9]">
+			<div className="flex justify-between items-center border-r border-b border-[#E9E9E9] h-[75px]">
 				<div className="flex">
 					<div className="min-w-[75px] p-[16px] flex-center">
 						<div
@@ -38,11 +39,13 @@ const Sidebar = ({
 					</div>
 				</div>
 
-				<button
-					className={clsx(isCollapse && "hidden")}
-					onClick={() => setIsCollapse(!isCollapse)}>
-					Collapse
-				</button>
+				<ChevronsLeft
+					onClick={() => setIsCollapse(!isCollapse)}
+					className={clsx(
+						"w-5 h-full cursor-pointer border-l",
+						isCollapse && "hidden"
+					)}
+				/>
 			</div>
 
 			<div className="h-full w-full flex">

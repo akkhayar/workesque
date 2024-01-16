@@ -1,4 +1,3 @@
-import Link from "next/link";
 import {
 	Select,
 	SelectTrigger,
@@ -6,12 +5,9 @@ import {
 	SelectContent,
 	SelectItem,
 } from "./ui/department-select";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
-import {
-	Collapsible,
-	CollapsibleContent,
-	CollapsibleTrigger,
-} from "@/components/ui/collapsible";
+import CustomCollapsible from "./ui/custom-collapsible";
 
 const Directory = () => {
 	return (
@@ -36,55 +32,27 @@ const Directory = () => {
 					<button className="text-[24px] h-[24px] w-[24px] flex-center">+</button>
 				</div>
 
-				<div className="py-[10px] overflow-hidden w-full space-y-[14px]">
-					<Collapsible>
-						<CollapsibleTrigger>
-							<div className="flex items-center gap-[10px] text-[12px] text-[#06352F] font-medium">
-								<div>{"<"}</div>
-								<p className="flex items-center gap-1 overflow-ellipsis">
-									YBS Directory
-								</p>
-							</div>
-						</CollapsibleTrigger>
-						<CollapsibleContent className="data-[state=open]:animate-slideDown data-[state=close]:animate-slideUp overflow-hidden">
-							<div className="mx-5 space-y-1 text-[12px] font-medium">
-								<Link
-									href="/"
-									className="w-full px-[15px] py-[5px] hover:bg-[#E1F6F4] text-[#06352F] block">
-									Documentation
-								</Link>
-								<Link
-									href="/"
-									className="w-full px-[15px] py-[5px] hover:bg-[#E1F6F4] text-[#06352F] block">
-									Task
-								</Link>
-							</div>
-						</CollapsibleContent>
-					</Collapsible>
-
-					<Collapsible>
-						<CollapsibleTrigger>
-							<div className="flex items-center gap-[10px] text-[12px] text-[#06352F] font-medium">
-								<div>{"<"}</div>
-								<p className="flex items-center gap-1 overflow-ellipsis">Literaturmo</p>
-							</div>
-						</CollapsibleTrigger>
-						<CollapsibleContent className="data-[state=open]:animate-slideDown data-[state=close]:animate-slideUp overflow-hidden">
-							<div className="mx-5 space-y-1 text-[12px] font-medium">
-								<Link
-									href="/"
-									className="w-full px-[15px] py-[5px] hover:bg-[#E1F6F4] text-[#06352F] block">
-									Documentation
-								</Link>
-								<Link
-									href="/"
-									className="w-full px-[15px] py-[5px] hover:bg-[#E1F6F4] text-[#06352F] block">
-									Task
-								</Link>
-							</div>
-						</CollapsibleContent>
-					</Collapsible>
+				{/* <div className="py-[10px] overflow-hidden w-full space-y-[14px] h-full"> */}
+				<div className="h-[300px] relative w-full">
+					<ScrollArea className="h-full w-full absolute top-0 left-0">
+						<CustomCollapsible
+							title="YBS Directory"
+							links={[
+								{ href: "/", title: "Documentation" },
+								{ href: "/", title: "Task" },
+							]}
+						/>
+						<CustomCollapsible
+							title="YBS Directory"
+							links={[
+								{ href: "/", title: "Documentation" },
+								{ href: "/", title: "Task" },
+							]}
+						/>
+					</ScrollArea>
 				</div>
+
+				{/* </div> */}
 			</div>
 		</div>
 	);
