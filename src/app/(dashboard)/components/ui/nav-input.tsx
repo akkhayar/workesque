@@ -17,11 +17,8 @@ const NavInput = React.forwardRef<HTMLInputElement, NavInputProps>(
 					)}
 					ref={ref}
 					{...props}
-					id="search"
 				/>
-				<label
-					htmlFor="search"
-					className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center peer-focus:hidden gap-1">
+				<label className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center peer-focus:hidden gap-1">
 					<div className="h-[12px] w-[12px] bg-gray-300"></div>
 					<p className="text-white text-[12px]">Search</p>
 				</label>

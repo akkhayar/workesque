@@ -33,6 +33,7 @@ import {
 
 import "@/styles/tag.css";
 import { Separator } from "@/components/ui/separator";
+import ComboBox from "./ui/combo-box";
 
 const formSchema = z.object({
 	projectName: z.string().min(2).max(50),
@@ -91,10 +92,11 @@ const NewProjectForm = () => {
 					control={form.control}
 					name="projectType"
 					render={({ field }) => (
-						<FormItem>
+						<FormItem className="flex flex-col">
 							<FormLabel>Project Type</FormLabel>
 							<FormControl>
-								<Select onValueChange={field.onChange} defaultValue={field.value}>
+								<ComboBox onValueChange={field.onChange} />
+								{/* <Select onValueChange={field.onChange} defaultValue={field.value}>
 									<SelectTrigger className="w-[250px] h-[60px] focus:outline-none focus:ring-0">
 										<SelectValue placeholder="Theme" />
 									</SelectTrigger>
@@ -103,7 +105,7 @@ const NewProjectForm = () => {
 										<SelectItem value="dark">Dark</SelectItem>
 										<SelectItem value="system">System</SelectItem>
 									</SelectContent>
-								</Select>
+								</Select> */}
 							</FormControl>
 							<FormDescription>Choose your project type.</FormDescription>
 							<FormMessage />
