@@ -34,6 +34,7 @@ import {
 import "@/styles/tag.css";
 import { Separator } from "@/components/ui/separator";
 import ComboBox from "./ui/combo-box";
+import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
 	projectName: z.string().min(2).max(50),
@@ -44,6 +45,7 @@ const formSchema = z.object({
 });
 
 const NewProjectForm = () => {
+	const router = useRouter();
 	const form = useForm<z.infer<typeof formSchema>>({
 		resolver: zodResolver(formSchema),
 		defaultValues: {
@@ -60,6 +62,7 @@ const NewProjectForm = () => {
 		// Do something with the form values.
 		// ✅ This will be type-safe and validated.
 		console.log(values);
+		router.push("/project");
 	}
 
 	return (
