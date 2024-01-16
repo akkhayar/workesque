@@ -114,8 +114,8 @@ const ParallaxSection = () => {
 						typically encountered elsewhere.
 					</p>
 				</div>
-				<div className="w-full border-2 border-[#0B6A5E] px-[90px] pb-[90px] pt-[60px] rounded-[40px] h-full relative shadow-custom-1">
-					<div className="flex h-[390px] gap-[12px] justify-end overflow-x-hidden w-[1200px]">
+				<div className="w-full border-2 border-[#0B6A5E] pb-[90px] pt-[60px] rounded-[40px] relative shadow-custom-1 flex items-center h-[545px] overflow-hidden">
+					<div className="flex h-[390px] gap-[12px] justify-end overflow-x-hidden absolute right-20 top-1/2 w-full -translate-y-1/2">
 						<Card title="INFORMATION SILOS" number={1} />
 						<Card title="TASK DUPLICATIONS" number={2} />
 						<Card title="PROGRESS INVISIBILITY" number={3} />

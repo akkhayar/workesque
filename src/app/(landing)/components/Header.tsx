@@ -1,8 +1,10 @@
 "use client";
 
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap/all";
+import gsap, { ScrollTrigger } from "gsap/all";
 import Link from "next/link";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Header = () => {
 	useGSAP(() => {
