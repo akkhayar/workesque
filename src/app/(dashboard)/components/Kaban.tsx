@@ -7,7 +7,6 @@ import { useState } from "react";
 import {
 	DndContext,
 	DragEndEvent,
-	DragMoveEvent,
 	DragOverEvent,
 	DragOverlay,
 	DragStartEvent,
@@ -15,8 +14,6 @@ import {
 	PointerSensor,
 	UniqueIdentifier,
 	closestCorners,
-	defaultAnnouncements,
-	useDraggable,
 	useDroppable,
 	useSensor,
 	useSensors,
@@ -24,6 +21,7 @@ import {
 
 import {
 	SortableContext,
+	arrayMove,
 	sortableKeyboardCoordinates,
 	useSortable,
 	verticalListSortingStrategy,
@@ -33,18 +31,38 @@ import clsx from "clsx";
 import {
 	Dialog,
 	DialogContent,
-	DialogDescription,
 	DialogHeader,
-	DialogTitle,
 	DialogTrigger,
 } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
+
 import AddTaskForm from "./AddTaskForm";
 
-const Kaban = () => {
-	const [data, setData] = useState(dummyDatas);
+interface ItemsState {
+	root: string[];
+	container1: string[];
+	container2: string[];
+	container3: string[];
+	container4: never[]; // Assuming container4 should be an empty array
+	[key: string]: string[];
+}
 
-	const [activeId, setActiveId] = useState<UniqueIdentifier>();
+const Kaban = () => {
+	const [items, setItems] = useState<ItemsState>({
+		root: Array(5)
+			.fill("")
+			.map((e, i) => `Task A${i}`),
+		container1: Array(3)
+			.fill("")
+			.map((e, i) => `Task B${i}`),
+		container2: Array(4)
+			.fill("")
+			.map((e, i) => `Task C${i}`),
+		container3: Array(2)
+			.fill("")
+			.map((e, i) => `Task D${i}`),
+		container4: [],
+	});
+	const [activeId, setActiveId] = useState<UniqueIdentifier | null>();
 
 	const sensors = useSensors(
 		useSensor(PointerSensor),
@@ -53,9 +71,92 @@ const Kaban = () => {
 		})
 	);
 
-	const handleDragStart = (e: DragStartEvent) => {};
-	const handleDragOver = (e: DragOverEvent) => {};
-	const handleDragEnd = (e: DragEndEvent) => {};
+	function findContainer(id: UniqueIdentifier) {
+		if (id in items) {
+			return id;
+		}
+
+		return Object.keys(items).find((key) => (items as any)[key].includes(id));
+	}
+
+	function handleDragStart(event: DragStartEvent) {
+		const { active } = event;
+		const { id } = active;
+
+		setActiveId(id);
+	}
+
+	function handleDragOver(event: DragOverEvent) {
+		const { active, over } = event;
+		const { id } = active;
+		const { id: overId } = over;
+
+		// Find the containers
+		const activeContainer = findContainer(id);
+		const overContainer = findContainer(overId);
+
+		if (!activeContainer || !overContainer || activeContainer === overContainer) {
+			return;
+		}
+
+		setItems((prev: ItemsState) => {
+			const activeItems = prev[activeContainer];
+			const overItems = prev[overContainer];
+
+			// Find the indexes for the items
+			const activeIndex = activeItems.indexOf(id);
+			const overIndex = overItems.indexOf(overId);
+
+			let newIndex;
+			if (overId in prev) {
+				// We're at the root droppable of a container
+				newIndex = overItems.length + 1;
+			} else {
+				const isBelowLastItem = over && overIndex === overItems.length - 1;
+
+				const modifier = isBelowLastItem ? 1 : 0;
+
+				newIndex = overIndex >= 0 ? overIndex + modifier : overItems.length + 1;
+			}
+
+			return {
+				...prev,
+				[activeContainer]: [
+					...prev[activeContainer].filter((item) => item !== active.id),
+				],
+				[overContainer]: [
+					...prev[overContainer].slice(0, newIndex),
+					items[activeContainer][activeIndex],
+					...prev[overContainer].slice(newIndex, prev[overContainer].length),
+				],
+			};
+		});
+	}
+
+	function handleDragEnd(event: DragEndEvent) {
+		const { active, over } = event;
+		const { id } = active;
+		const { id: overId } = over;
+
+		const activeContainer = findContainer(id);
+		const overContainer = findContainer(overId);
+
+		if (!activeContainer || !overContainer || activeContainer !== overContainer) {
+			return;
+		}
+
+		const activeIndex = items[activeContainer].indexOf(active.id);
+		const overIndex = items[overContainer].indexOf(overId);
+
+		if (activeIndex !== overIndex) {
+			setItems((items) => ({
+				...items,
+				[overContainer]: arrayMove(items[overContainer], activeIndex, overIndex),
+			}));
+		}
+
+		setActiveId(null);
+	}
 
 	return (
 		<ScrollArea className="w-full h-full mt-5">
@@ -66,47 +167,47 @@ const Kaban = () => {
 					onDragStart={handleDragStart}
 					onDragOver={handleDragOver}
 					onDragEnd={handleDragEnd}>
-					<SortableContext
-						items={data.flatMap((column) => column.tasks!.map((task) => task.id))}
-						strategy={verticalListSortingStrategy}>
-						{data.map((columnData, index) => (
-							<Column key={index} data={columnData} />
-						))}
-					</SortableContext>
+					<Column id="root" items={items.root} />
+					<Column id="container1" items={items.container1} />
+					<Column id="container2" items={items.container2} />
+					<Column id="container3" items={items.container3} />
+					<Column id="container4" items={items.container4} />
+
+					<DragOverlay>{activeId ? <Task item={activeId} /> : null}</DragOverlay>
 				</DndContext>
 			</div>
 		</ScrollArea>
 	);
 };
 
-export interface TaskProps {
-	id: UniqueIdentifier;
-	title: string;
-	tasks?: Tasks[];
-}
+// export interface TaskProps {
+// 	id: UniqueIdentifier;
+// 	title: string;
+// 	tasks?: Tasks[];
+// }
 
-export interface Tasks {
-	id: UniqueIdentifier;
-	tags: string[];
-	title: string;
-	description: string;
-	deadline: string;
-	assignee: string;
-	assignor: string;
-}
+// export interface Tasks {
+// 	id: UniqueIdentifier;
+// 	tags: string[];
+// 	title: string;
+// 	description: string;
+// 	deadline: string;
+// 	assignee: string;
+// 	assignor: string;
+// }
 
-const Column = ({ data }: { data: TaskProps }) => {
+const Column = ({ id, items }: { id: string; items: UniqueIdentifier[] }) => {
 	const [open, setOpen] = useState(false);
 
 	const { setNodeRef } = useDroppable({
-		id: data.id,
+		id,
 		// data: { type: "container", accepts: data.tasks?.map((data) => data.id) },
 	});
 
 	return (
 		<div className="flex flex-col">
 			<div className="flex justify-between items-center">
-				<p>{data.title}</p>
+				<p>{id}</p>
 				<MoreVertical />
 			</div>
 			<Dialog open={open} onOpenChange={setOpen}>
@@ -125,9 +226,12 @@ const Column = ({ data }: { data: TaskProps }) => {
 			<div
 				className="mt-[15px] w-full h-[500px] flex flex-col gap-5"
 				ref={setNodeRef}>
-				<SortableContext items={data.tasks!} strategy={verticalListSortingStrategy}>
-					{data.tasks!.map((task, index) => (
-						<Task key={task.id} task={task} />
+				<SortableContext
+					id={id!}
+					items={items}
+					strategy={verticalListSortingStrategy}>
+					{items?.map((item) => (
+						<Task key={item} item={item} />
 					))}
 				</SortableContext>
 			</div>
@@ -135,7 +239,7 @@ const Column = ({ data }: { data: TaskProps }) => {
 	);
 };
 
-const Task = ({ task }: { task: Tasks }) => {
+const Task = ({ item }: { item?: UniqueIdentifier }) => {
 	const {
 		attributes,
 		setNodeRef,
@@ -143,11 +247,14 @@ const Task = ({ task }: { task: Tasks }) => {
 		transform,
 		transition,
 		isDragging,
-	} = useSortable({ id: task.id, data: { type: "task", task } });
+	} = useSortable({ id: item! });
 
 	return (
 		<div
-			className="px-[10px] pb-[10px] flex flex-col bg-white border border-[#85B5AF] rounded-[7px] mb-5"
+			className={clsx(
+				isDragging && "bg-opacity-5",
+				"px-[10px] pb-[10px] flex flex-col bg-white border border-[#85B5AF] rounded-[7px] mb-5"
+			)}
 			ref={setNodeRef}
 			{...attributes}
 			style={{
@@ -163,22 +270,24 @@ const Task = ({ task }: { task: Tasks }) => {
 			</div>
 
 			<div className="flex gap-2 items-center flex-wrap">
-				{task.tags.map((tag) => (
-					<div key={tag} className="px-4 py-1 rounded-full bg-green-300">
+				{/* {task!.tags.map((tag) => (
+					<div key={tag} className="px-4 py-1 text-[10px] rounded-full bg-green-300">
 						{tag}
 					</div>
-				))}
+				))} */}
+
+				<div className="px-4 py-1 text-[10px] rounded-full bg-green-300">UI</div>
 			</div>
 
 			<div className="mt-2">
-				<p className="font-medium text-[12px]">{task.title}</p>
-				<p className="text-[10px] text-[#888888]">{task.description}</p>
-				<p className="text-[10px] text-[#A12C2C]">{task.deadline}</p>
+				<p className="font-medium text-[12px]">{item}</p>
+				<p className="text-[10px] text-[#888888]">Eat Sleep Repeat</p>
+				<p className="text-[10px] text-[#A12C2C]">January 20th, 1965</p>
 			</div>
 
 			<div className="mt-4">
-				<p className="text-[10px] text-[#343434]">Assigned to: {task.assignor}</p>
-				<p className="text-[10px] text-[#343434]">Assigned by: {task.assignee}</p>
+				<p className="text-[10px] text-[#343434]">Assigned to: John Snow</p>
+				<p className="text-[10px] text-[#343434]">Assigned by: Patrick</p>
 			</div>
 		</div>
 	);

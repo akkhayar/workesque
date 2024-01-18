@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { NavInput } from "./ui/nav-input";
 import { useRouter } from "next/navigation";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const Navbar = () => {
 	const router = useRouter();
@@ -14,8 +15,12 @@ const Navbar = () => {
 			</Link>
 			<div className="flex gap-4 items-center">
 				<div className="flex gap-2">
-					<button onClick={() => router.back()}>Back</button>
-					<button onClick={() => router.forward()}>Forward</button>
+					<button onClick={() => router.back()}>
+						<ArrowLeft color="white" />
+					</button>
+					<button onClick={() => router.forward()}>
+						<ArrowRight color="white" />
+					</button>
 				</div>
 				<NavInput type="text" autoComplete="off" />
 			</div>
