@@ -3,6 +3,7 @@ import TextReveal from "./components/TextReveal";
 
 import ParallaxSection from "./components/ParallaxSection";
 import CursorHoverSection from "./components/CursorHoverSection";
+import Link from "next/link";
 
 const LandingPage = () => {
 	return (
@@ -34,10 +35,12 @@ const LandingPage = () => {
 					/>
 				</div>
 
-				<button className="landing-button text-[24px] flex-center z-2">
+				<Link
+					href="/new-project"
+					className="landing-button text-[24px] flex-center z-2">
 					GET STARTED FOR FREE
 					<div className="h-[50px] w-[50px] rounded-full overflow-hidden ml-[10px] bg-[#06352F]"></div>
-				</button>
+				</Link>
 
 				{/* Gradients */}
 			</section>
@@ -94,12 +97,12 @@ const LandingPage = () => {
 					WORKESQUE?
 				</p>
 				<div className="grid grid-cols-5 gap-[40px] max-w-[1400px] mx-auto">
-					<div className="col-span-3 p-[28px] h-[520px] rounded-[40px] shadow-bento bg-gradient-to-br from-white to-[#EFFFFE] relative overflow-hidden">
+					<div className="col-span-3 p-[28px] h-[400px] rounded-[40px] shadow-bento bg-gradient-to-br from-white to-[#EFFFFE] relative overflow-hidden">
 						<div className="h-full flex flex-col justify-between z-[2] text-[#142623]">
 							<p className="w-[440px] text-[40px] font-semibold">
 								ALL YOUR ECOSYSTEM IN <span className="text-gradient-l">ONE PLACE</span>
 							</p>
-							<p className="w-[624px] mt-auto mb-[40px] text-[20px] font-medium">
+							<p className="w-[576px] mt-auto mb-[16px] text-[16px] font-medium">
 								Workesque strives to revolutionize project management by centralizing
 								operations all in one space, in <i>your</i> cloud - fostering
 								collaboration, and enhancing productivity.
@@ -107,13 +110,13 @@ const LandingPage = () => {
 						</div>
 					</div>
 
-					<div className="col-span-2 p-[28px] h-[520px] rounded-[40px] shadow-bento bg-gradient-to-br from-[#EFFFFE] to-white relative overflow-hidden">
-						<div className="z-[2] relative flex flex-col text-[#142623]">
+					<div className="col-span-2 p-[28px] h-[400px] rounded-[40px] shadow-bento bg-gradient-to-br from-[#EFFFFE] to-white relative overflow-hidden">
+						<div className="z-[2] relative flex flex-col text-[#142623] justify-between h-full">
 							<p className="text-center font-semibold text-[40px]">
 								COMPLETE DATA <br />
 								<span className="text-gradient-t">CONTROL</span>
 							</p>
-							<p className="w-[311px] font-medium text-[20px] mt-[37px]">
+							<p className="w-[311px] font-medium text-[16px] mb-[22px]">
 								Workesque strives to revolutionize project management by centralizing
 								operations all in one space, in <i>your</i> cloud - fostering
 								collaboration, and enhancing productivity.
@@ -130,7 +133,7 @@ const LandingPage = () => {
 						</div>
 					</div>
 
-					<div className="col-span-2 p-[28px] h-[520px] rounded-[40px] shadow-bento bg-gradient-to-bl from-[#EFFFFE] to-white relative overflow-hidden">
+					<div className="col-span-2 p-[28px] h-[400px] rounded-[40px] shadow-bento bg-gradient-to-bl from-[#EFFFFE] to-white relative overflow-hidden">
 						<div className="z-[2] relative flex-center flex-col w-full h-full gap-[40px]">
 							<p className="text-[54px] text-[#142623] font-extrabold">
 								ARE YOU READY?
@@ -150,12 +153,12 @@ const LandingPage = () => {
 						</div>
 					</div>
 
-					<div className="col-span-3 p-[28px] h-[520px] rounded-[40px] shadow-bento bg-gradient-to-tr from-[#EFFFFE] to-white relative overflow-hidden">
+					<div className="col-span-3 p-[28px] h-[400px] rounded-[40px] shadow-bento bg-gradient-to-tr from-[#EFFFFE] to-white relative overflow-hidden">
 						<div className="z-[2] h-full relative flex justify-end flex-col gap-[30px]">
 							<p className="font-semibold text-[40px]">
 								CUSTOMIZABLE AND <span className="text-gradient-l">HACKABLE</span>
 							</p>
-							<p className="mb-[40px] w-[624px] font-medium text-[20px]">
+							<p className="mb-[40px] w-[624px] font-medium text-[16px]">
 								Workesque strives to revolutionize project management by centralizing
 								operations all in one space, in <i>your</i> cloud - fostering
 								collaboration, and enhancing productivity.

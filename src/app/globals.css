@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("../styles/theme.css");
 @import url("../styles/buttons.css");
 
 @layer base {
@@ -74,7 +73,7 @@
 		@apply border-border;
 	}
 	body {
-		@apply bg-background text-foreground -z-1 font-raleway;
+		@apply bg-background text-foreground font-raleway;
 	}
 }
 

@@ -14,22 +14,24 @@ const TextReveal = () => {
 			text.current,
 
 			{
-				x: "100%",
+				x: "8%",
 				duration: 1,
-				ease: "circ.inOut",
+				ease: "linear",
 				scrollTrigger: {
 					trigger: text.current,
 					start: "-700px top",
 					end: "-100px",
+					scrub: true,
+					// markers: true,
 					toggleActions: "play none reverse none",
 				},
 			}
 		);
 	});
 	return (
-		<div className="w-full relative z-1 overflow-hidden">
+		<div className="w-[1400px] relative z-1 overflow-hidden mx-auto">
 			<p
-				className="font-semibold text-[96px] text-center z-2 translate-x-0"
+				className="font-semibold text-[96px] text-left z-2 -translate-x-[20%] origin-right mx-auto text-nowrap"
 				ref={text}>
 				FOR UNIFIED OPERATIONS & TEAMS
 			</p>

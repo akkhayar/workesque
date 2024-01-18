@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Raleway, Recursive, Staatliches } from "next/font/google";
 import "./globals.css";
+import ScreenProvider from "@/lib/providers/screen-provider";
 
 const raleway = Raleway({
 	subsets: ["latin"],
@@ -33,7 +34,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body
 				className={`${raleway.variable} ${recursive.variable} ${staatliches.variable}`}>
-				{children}
+				<ScreenProvider>{children}</ScreenProvider>
 			</body>
 		</html>
 	);
