@@ -10,7 +10,7 @@ const Navbar = () => {
 	return (
 		<div className="flex justify-between items-center px-[24px] p-[14px] bg-[#0B6A5E]">
 			<Link href="/project" className="text-[20px] text-white font-medium">
-				WORKSEQUES
+				WORKESQUE
 			</Link>
 			<div className="flex gap-4 items-center">
 				<div className="flex gap-2">
