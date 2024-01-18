@@ -8,7 +8,7 @@ const ProjectLayout = ({ children }: { children: React.ReactNode }) => {
 	const [isCollapse, setIsCollapse] = useState(false);
 
 	return (
-		<main className="w-full h-screen flex flex-col">
+		<main className="w-full min-h-screen h-screen overflow-hidden flex flex-col">
 			<Navbar />
 			<div className="flex h-full">
 				<Sidebar isCollapse={isCollapse} setIsCollapse={setIsCollapse} />
