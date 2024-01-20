@@ -37,7 +37,7 @@ const LandingPage = () => {
 
 				<Link
 					href="/new-project"
-					className="landing-button text-[24px] flex-center z-2">
+					className="landing-button text-[24px] font-bold flex-center z-2 duration-200 hover:bg-[#06352F] hover:text-white hover:border-black">
 					GET STARTED FOR FREE
 					<div className="h-[50px] w-[50px] rounded-full overflow-hidden ml-[10px] bg-[#06352F]"></div>
 				</Link>
