@@ -96,7 +96,7 @@
 	}
 
 	.landing-button {
-		@apply rounded-full border-[#3E6E68] bg-[#DDF4F4] border-[4px] px-[30px] py-[17px];
+		@apply rounded-full border-[#06352f] hover:bg-[#06352f] hover:text-white border-[4px]	py-2 px-4;
 	}
 
 	.glass-morph {
