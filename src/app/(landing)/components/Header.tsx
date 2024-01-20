@@ -23,12 +23,12 @@ const Header = () => {
 	});
 	return (
 		<div className="py-5 sticky top-0 z-10">
-			<header className="px-[30px] py-[25px] flex-center gap-[116px] mx-auto w-fit rounded-[30px] border-[#094B43">
-				<Link href="/" className="text-[36px] flex flex-col font-bold">
+			<header className="px-[30px] py-[4px] flex-center gap-[116px] mx-auto w-fit rounded-[30px] border-[#094B43">
+				<Link href="/" className="text-[40px] flex flex-col font-bold">
 					WORKESQUE
 				</Link>
 				<nav>
-					<ul className="flex gap-[35px] text-[28px] font-semibold">
+					<ul className="flex gap-[35px] text-[20px] font-semibold">
 						<li>
 							<Link href="/">Product</Link>
 						</li>
@@ -44,11 +44,11 @@ const Header = () => {
 					</ul>
 				</nav>
 
-				<div className="flex gap-[22px] font-semibold text-[24px]">
-					<button className="w-[140px] h-[55px] rounded-full shadow-button bg-white">
+				<div className="flex gap-[22px] font-semibold text-[20px]">
+					<button className="w-[130px] h-[48px] rounded-full shadow-button bg-white">
 						Sign Up
 					</button>
-					<button className="w-[140px] h-[55px] rounded-full bg-[#142623] text-white">
+					<button className="w-[130px] h-[48px] rounded-full bg-[#142623] text-white">
 						Login
 					</button>
 				</div>
