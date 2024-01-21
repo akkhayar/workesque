@@ -38,29 +38,29 @@ import {
 import AddTaskForm from "./AddTaskForm";
 
 interface ItemsState {
-	tasks: string[];
-	in_progress: string[];
-	completed: string[];
-	backlog: string[];
-	cancelled: never[]; // Assuming container4 should be an empty array
+	root: string[];
+	container1: string[];
+	container2: string[];
+	container3: string[];
+	container4: never[]; // Assuming container4 should be an empty array
 	[key: string]: string[];
 }
 
 const Kaban = () => {
 	const [items, setItems] = useState<ItemsState>({
-		tasks: Array(5)
+		root: Array(5)
 			.fill("")
 			.map((e, i) => `Task A${i}`),
-		in_progress: Array(3)
+		container1: Array(3)
 			.fill("")
 			.map((e, i) => `Task B${i}`),
-		completed: Array(4)
+		container2: Array(4)
 			.fill("")
 			.map((e, i) => `Task C${i}`),
-		backlog: Array(2)
+		container3: Array(2)
 			.fill("")
 			.map((e, i) => `Task D${i}`),
-		cancelled: [],
+		container4: [],
 	});
 	const [activeId, setActiveId] = useState<UniqueIdentifier | null>();
 
@@ -76,7 +76,7 @@ const Kaban = () => {
 			return id;
 		}
 
-		return Object.keys(items).find((key) => (items as any)[key].includes(id));
+		return Object.keys(items).find((key) => items[key].includes(id as string));
 	}
 
 	function handleDragStart(event: DragStartEvent) {
@@ -167,11 +167,11 @@ const Kaban = () => {
 					onDragStart={handleDragStart}
 					onDragOver={handleDragOver}
 					onDragEnd={handleDragEnd}>
-					<Column id="Tasks" items={items.tasks} />
-					<Column id="In Progress" items={items.in_progress} />
-					<Column id="Completed" items={items.completed} />
-					<Column id="Backlog" items={items.backlog} />
-					<Column id="Cancelled" items={items.cancelled} />
+					<Column id="Tasks" items={items.root} />
+					<Column id="In Progress" items={items.container1} />
+					<Column id="Completed" items={items.container2} />
+					<Column id="Backlog" items={items.container3} />
+					<Column id="Cancled" items={items.container4} />
 
 					<DragOverlay>{activeId ? <Task item={activeId} /> : null}</DragOverlay>
 				</DndContext>
@@ -205,7 +205,7 @@ const Column = ({ id, items }: { id: string; items: UniqueIdentifier[] }) => {
 	});
 
 	return (
-		<div className="flex flex-col">
+		<div className="flex flex-col h-full">
 			<div className="flex justify-between items-center">
 				<p>{id}</p>
 				<MoreVertical />
