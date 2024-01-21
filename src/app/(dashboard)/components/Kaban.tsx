@@ -76,7 +76,7 @@ const Kaban = () => {
 			return id;
 		}
 
-		return Object.keys(items).find((key) => (items as any)[key].includes(id));
+		return Object.keys(items).find((key) => items[key].includes(id as string));
 	}
 
 	function handleDragStart(event: DragStartEvent) {
@@ -167,11 +167,11 @@ const Kaban = () => {
 					onDragStart={handleDragStart}
 					onDragOver={handleDragOver}
 					onDragEnd={handleDragEnd}>
-					<Column id="root" items={items.root} />
-					<Column id="container1" items={items.container1} />
-					<Column id="container2" items={items.container2} />
-					<Column id="container3" items={items.container3} />
-					<Column id="container4" items={items.container4} />
+					<Column id="Tasks" items={items.root} />
+					<Column id="In Progress" items={items.container1} />
+					<Column id="Completed" items={items.container2} />
+					<Column id="Backlog" items={items.container3} />
+					<Column id="Cancled" items={items.container4} />
 
 					<DragOverlay>{activeId ? <Task item={activeId} /> : null}</DragOverlay>
 				</DndContext>
@@ -205,7 +205,7 @@ const Column = ({ id, items }: { id: string; items: UniqueIdentifier[] }) => {
 	});
 
 	return (
-		<div className="flex flex-col">
+		<div className="flex flex-col h-full">
 			<div className="flex justify-between items-center">
 				<p>{id}</p>
 				<MoreVertical />
