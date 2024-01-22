@@ -35,7 +35,7 @@ import {
 	DialogTrigger,
 } from "@/components/ui/dialog";
 
-import AddTaskForm from "./AddTaskForm";
+import AddTaskForm from "../../components/AddTaskForm";
 
 interface ItemsState {
 	root: string[];

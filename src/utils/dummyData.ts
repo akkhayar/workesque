@@ -1,4 +1,4 @@
-import { TaskProps } from "@/app/(dashboard)/components/Kaban";
+import { TaskProps } from "@/app/(dashboard)/project/components/Kaban";
 
 export const dummyDatas: TaskProps[] = [
 	{

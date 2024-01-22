@@ -1,6 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MoreHorizontal } from "lucide-react";
-import TasksSection from "../components/TasksSection";
+import TasksSection from "./components/TasksSection";
 
 const ProjectPage = () => {
 	return (

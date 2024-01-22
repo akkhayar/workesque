@@ -54,9 +54,7 @@ const Sidebar = ({
 						<Link
 							href="/project/default"
 							className="w-[32px] h-[32px] bg-gray-300"></Link>
-						<Link
-							href="/project/default"
-							className="w-[32px] h-[32px] bg-gray-300"></Link>
+						<Link href="/calendar" className="w-[32px] h-[32px] bg-gray-300"></Link>
 					</div>
 				</div>
 				<Directory />
