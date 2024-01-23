@@ -21,8 +21,8 @@ import {
 	SelectItem,
 	SelectTrigger,
 	SelectValue,
-} from "./ui/add-task-select";
-import { DatePicker } from "./ui/date-picker";
+} from "../../components/ui/add-task-select";
+import { DatePicker } from "../../components/ui/date-picker";
 import { Plus } from "lucide-react";
 import { Dispatch, SetStateAction } from "react";
 import { Textarea } from "@/components/ui/textarea";
@@ -67,9 +67,7 @@ const AddTaskForm = ({
 	}
 	return (
 		<Form {...form}>
-			<form
-				onSubmit={form.handleSubmit(onSubmit)}
-				className="space-y-[24px] relative">
+			<form onSubmit={form.handleSubmit(onSubmit)} className="space-y-3 relative">
 				<FormField
 					control={form.control}
 					name="title"

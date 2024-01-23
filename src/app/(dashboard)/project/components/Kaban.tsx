@@ -35,7 +35,7 @@ import {
 	DialogTrigger,
 } from "@/components/ui/dialog";
 
-import AddTaskForm from "../../components/AddTaskForm";
+import AddTaskForm from "./AddTaskForm";
 
 interface ItemsState {
 	root: string[];
@@ -216,9 +216,11 @@ const Column = ({ id, items }: { id: string; items: UniqueIdentifier[] }) => {
 						+ Add Task
 					</div>
 				</DialogTrigger>
-				<DialogContent className="min-w-[1000px]">
+				<DialogContent className="min-w-[1000px] max-h-[600px] h-full overflow-auto">
 					<DialogHeader>
-						<AddTaskForm setOpen={setOpen} />
+						<ScrollArea>
+							<AddTaskForm setOpen={setOpen} />
+						</ScrollArea>
 					</DialogHeader>
 				</DialogContent>
 			</Dialog>

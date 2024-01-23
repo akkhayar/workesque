@@ -110,6 +110,11 @@ const config = {
 					},
 				},
 			},
+			transitionDuration: {
+				"1000": "1000ms",
+				"2000": "2000ms",
+				"3000": "3000ms",
+			},
 			animation: {
 				"accordion-down": "accordion-down 0.2s ease-out",
 				"accordion-up": "accordion-up 0.2s ease-out",
@@ -121,7 +126,10 @@ const config = {
 			},
 		},
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		require("tailwindcss-animate"),
+		require("tailwind-scrollbar")({ nocompatible: true }),
+	],
 } satisfies Config;
 
 export default config;

@@ -9,7 +9,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 
 import CustomCollapsible from "./ui/custom-collapsible";
 
-const Directory = () => {
+const ProjectDirectory = () => {
 	return (
 		<div className="w-full h-full bg-[#F7F8F9] border p-[20px]">
 			<div className="">
@@ -57,4 +57,4 @@ const Directory = () => {
 		</div>
 	);
 };
-export default Directory;
+export default ProjectDirectory;
