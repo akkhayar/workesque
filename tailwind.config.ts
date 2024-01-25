@@ -69,6 +69,7 @@ const config = {
 				button: "0px 0px 20px 0px #00000040",
 				bento: "0px 3px 15px 1px #5A5A5A1F",
 				"custom-1": "0px 0px 15px 0px #0000001F",
+				"calendar-card": "0px 4px 10px 2px #0000001F",
 			},
 			textColor: {
 				dark: "#343434",
