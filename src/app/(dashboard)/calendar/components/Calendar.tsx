@@ -284,13 +284,16 @@ const Calendar = () => {
 										<div
 											className="w-full p-[10px] rounded-[7px] border border-[#B5B5B5] shadow-calendar-card flex gap-2"
 											key={i}>
-											<Checkbox id="event1" />
 											<div className="grid gap-1.5 leading-none">
-												<label
-													htmlFor="event1"
-													className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-													{event.title}
-												</label>
+												<div className="flex items-center gap-2">
+													<Checkbox id="event1" className="peer" />
+													<label
+														htmlFor="event1"
+														className="text-sm font-medium peer-aria-checked:line-through leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+														{event.title}
+													</label>
+												</div>
+
 												<p className="text-sm text-muted-foreground">
 													{format(event.date, "hh:mm a")}
 												</p>
