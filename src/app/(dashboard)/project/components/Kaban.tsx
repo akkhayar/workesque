@@ -1,7 +1,6 @@
 "use client";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { dummyDatas } from "@/utils/dummyData";
 import { GripHorizontal, MoreVertical } from "lucide-react";
 import { useState } from "react";
 import {
@@ -11,6 +10,7 @@ import {
 	DragOverlay,
 	DragStartEvent,
 	KeyboardSensor,
+	Over,
 	PointerSensor,
 	UniqueIdentifier,
 	closestCorners,
@@ -87,9 +87,14 @@ const Kaban = () => {
 	}
 
 	function handleDragOver(event: DragOverEvent) {
-		const { active, over } = event;
-		const { id } = active;
-		const { id: overId } = over;
+		// const { active, over } = event;
+		// const { id } = active;
+		// const { id: overId } = over;
+
+		const active = event.active;
+		const over = event.over;
+		const id = active.id;
+		const overId = over!.id;
 
 		// Find the containers
 		const activeContainer = findContainer(id);
@@ -104,8 +109,8 @@ const Kaban = () => {
 			const overItems = prev[overContainer];
 
 			// Find the indexes for the items
-			const activeIndex = activeItems.indexOf(id);
-			const overIndex = overItems.indexOf(overId);
+			const activeIndex = activeItems.indexOf(id as string);
+			const overIndex = overItems.indexOf(overId as string);
 
 			let newIndex;
 			if (overId in prev) {
@@ -134,9 +139,13 @@ const Kaban = () => {
 	}
 
 	function handleDragEnd(event: DragEndEvent) {
-		const { active, over } = event;
-		const { id } = active;
-		const { id: overId } = over;
+		// const { active, over } = event;
+		// const { id } = active;
+		// const { id: overId } = over;
+		const active = event.active;
+		const over = event.over;
+		const id = active.id;
+		const overId = over!.id;
 
 		const activeContainer = findContainer(id);
 		const overContainer = findContainer(overId);
@@ -145,8 +154,8 @@ const Kaban = () => {
 			return;
 		}
 
-		const activeIndex = items[activeContainer].indexOf(active.id);
-		const overIndex = items[overContainer].indexOf(overId);
+		const activeIndex = items[activeContainer].indexOf(active.id as string);
+		const overIndex = items[overContainer].indexOf(overId as string);
 
 		if (activeIndex !== overIndex) {
 			setItems((items) => ({
