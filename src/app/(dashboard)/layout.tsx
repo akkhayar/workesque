@@ -10,7 +10,7 @@ const ProjectLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<main className="w-full h-screen flex flex-col">
 			<Navbar />
-			<div className="flex h-full">
+			<div className="flex h-full overflow-hidden">
 				<Sidebar isCollapse={isCollapse} setIsCollapse={setIsCollapse} />
 				<section className="w-full h-full flex flex-col">{children}</section>
 			</div>

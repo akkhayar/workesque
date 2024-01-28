@@ -1,8 +1,11 @@
-import clsx from "clsx";
-import Link from "next/link";
 import { Dispatch, SetStateAction } from "react";
-import Directory from "./Directory";
-import { ChevronLeft, ChevronsLeft } from "lucide-react";
+import ProjectDirectory from "./ProjectDirectory";
+import { ChevronsLeft } from "lucide-react";
+import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
+import CalendarDirectory from "./CalendarDirectory";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 const Sidebar = ({
 	isCollapse,
@@ -11,13 +14,28 @@ const Sidebar = ({
 	isCollapse: boolean;
 	setIsCollapse: Dispatch<SetStateAction<boolean>>;
 }) => {
+	// const path = useDirectoryStore((state) => state.path);
+	// const setPath = useDirectoryStore((state) => state.setPath);
+
+	const pathName = usePathname();
+	const router = useRouter();
+
+	const renderDirectory = (path: string) => {
+		switch (path) {
+			case "/project":
+				return <ProjectDirectory />;
+			case "/calendar":
+				return <CalendarDirectory />;
+		}
+	};
+
 	return (
 		<div
-			className={clsx(
-				"h-full overflow-hidden transition-all duration-300",
+			className={cn(
+				"h-full transition-all duration-300 overflow-hidden flex flex-col",
 				isCollapse ? "min-w-[75px] max-w-[75px]" : "min-w-[331px] max-w-[331px]"
 			)}>
-			<div className="flex justify-between items-center border-r border-b border-[#E9E9E9] h-[75px]">
+			<div className="flex justify-between items-center border-r border-b border-[#E9E9E9] min-h-[75px]">
 				<div className="flex">
 					<div className="min-w-[75px] p-[16px] flex-center">
 						<div
@@ -27,7 +45,7 @@ const Sidebar = ({
 
 					<div className="flex gap-[12px] items-center justify-center">
 						<div
-							className={clsx(
+							className={cn(
 								"flex flex-col",
 								isCollapse ? "opacity-0 hidden" : "opacity-100"
 							)}>
@@ -41,7 +59,7 @@ const Sidebar = ({
 
 				<ChevronsLeft
 					onClick={() => setIsCollapse(!isCollapse)}
-					className={clsx(
+					className={cn(
 						"w-5 h-full cursor-pointer border-l",
 						isCollapse && "hidden"
 					)}
@@ -51,15 +69,31 @@ const Sidebar = ({
 			<div className="h-full w-full flex">
 				<div className="min-w-[75px] h-full border-b border-[#E9E9E9]">
 					<div className="w-full flex-start flex-col gap-10 pt-[20px] border-r h-full">
-						<Link
-							href="/project/default"
-							className="w-[32px] h-[32px] bg-gray-300"></Link>
-						<Link
-							href="/project/default"
-							className="w-[32px] h-[32px] bg-gray-300"></Link>
+						<Link href="/project" className="w-[32px] h-[32px] flex-center">
+							<Image
+								src="/assets/icons/file.svg"
+								height={24}
+								width={24}
+								alt="File Icon"
+							/>
+						</Link>
+						<Link href="/calendar" className="w-[32px] h-[32px] flex-center">
+							<Image
+								src="/assets/icons/calendar.svg"
+								height={24}
+								width={24}
+								alt="Calendar Icon"
+							/>
+						</Link>
 					</div>
 				</div>
-				<Directory />
+				<div
+					className={cn(
+						"w-full h-full overflow-hidden relative transition-all duration-100",
+						isCollapse ? "opacity-0" : "opacity-100 delay-100"
+					)}>
+					{renderDirectory(pathName)}
+				</div>
 			</div>
 		</div>
 	);

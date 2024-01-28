@@ -65,7 +65,7 @@ const ComboBox = ({
 			</PopoverTrigger>
 			<PopoverContent className="w-[170px] p-[15px]">
 				<Command>
-					<CommandInput />
+					<CommandInput className="h-[25px] px-2 w-[100px] bg-[#E7F0EF]" />
 					<CommandEmpty>No framework found.</CommandEmpty>
 					<CommandGroup>
 						{frameworks.map((framework) => (

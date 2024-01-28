@@ -1,5 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MoreHorizontal } from "lucide-react";
+import TasksSection from "./components/TasksSection";
 
 const ProjectPage = () => {
 	return (
@@ -14,13 +15,13 @@ const ProjectPage = () => {
 						<TabsTrigger value="account">Tasks</TabsTrigger>
 						<TabsTrigger value="password">People</TabsTrigger>
 					</TabsList>
+
 					<TabsContent
 						value="account"
 						className="w-full flex-grow px-[20px] pb-[20px]">
-						<div className="w-full h-full rounded-[10px] bg-[#F7F8F9] border border-[#E9E9E9]">
-							Tasks
-						</div>
+						<TasksSection />
 					</TabsContent>
+
 					<TabsContent
 						value="password"
 						className="w-full flex-grow px-[20px] pb-[20px]">
